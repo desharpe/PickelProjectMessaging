@@ -81,8 +81,8 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: '${appName}-dev'
-          images: ${registry_name}.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+          app-name: '${{env.appName}}-dev'
+          images: ${{env.registry_name}}.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-test:
   
