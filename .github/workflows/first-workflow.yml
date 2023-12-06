@@ -17,7 +17,7 @@ env:
   repositoryName: techboost/dotnetcoreapp
   dockerFolderPath: ./Application/src/RazorPagesTestSample
   tag: ${{github.run_number}}
-  appName: PickleProjectMessaging
+  appName: g4y55h2kdmxps
 
 
 jobs:
