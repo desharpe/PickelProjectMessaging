@@ -81,8 +81,8 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: '$appName-dev'
-          images: $registry_name.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+          app-name: '${appName}-dev'
+          images: ${registry_name}.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-test:
   
@@ -90,7 +90,7 @@ jobs:
     needs: deploy-to-dev
     environment:
       name: test
-      url: https://$appName-test.azurewebsites.net/
+      url: https://${appName}-test.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -102,8 +102,8 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: '$appName-test'
-        images: $registry_name.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+        app-name: '${appName"-test'
+        images: ${registry_name}.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-prod:
   
@@ -111,7 +111,7 @@ jobs:
     needs: deploy-to-test
     environment:
       name: prod
-      url: https://$appName-prod.azurewebsites.net/
+      url: https://${appName}-prod.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -123,5 +123,5 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: '$appName-prod'
-        images: $registry_name.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+        app-name: '${appName}-prod'
+        images: ${registry_name}.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
